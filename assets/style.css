@@ -271,6 +271,12 @@ form button {
 }
 
 @media only screen and (max-device-width: 600px) {
+  	body {
+  		height: -webkit-avilable-height;
+  		width: -webkit-avilable-width;
+  		font-size: 20px;
+  	}
+
   	.todopic {
   		display: none;
   	}
@@ -279,4 +285,21 @@ form button {
   		height: -webkit-avilable-height;
   		width: -webkit-avilable-width;
   	}
+
+  	.content {
+  		padding-top: 5em;
+  	}
+
+  	.addButton {
+  		transform: scale(1);
+  	}
+
+  	.name {
+
+  	}
+
+  	@keyframes whiteanimate {
+
+	0%  { transform: translate(0, 0);}
+  	100% { transform: translate(-100px, 600px);}
 }
