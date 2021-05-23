@@ -269,3 +269,14 @@ form button {
     background: transparent;
     margin-top: 10vh;
 }
+
+@media only screen and (max-device-width: 600px) {
+  	.todopic {
+  		display: none;
+  	}
+
+  	.container {
+  		height: -webkit-avilable-height;
+  		width: -webkit-avilable-width;
+  	}
+}
