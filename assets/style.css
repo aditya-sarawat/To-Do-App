@@ -1,0 +1,271 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	font-family: Open Sans, sans-serif;
+	color: white;
+}
+
+body {
+	background: #8E0E00;
+	background: linear-gradient(90deg, #8E0E00 0%, #1F1C18 75.52%, #1F1C18 99.48%);
+	background-size: cover;
+}
+
+.iconHead {
+	margin-bottom: 3.2em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.icon {
+	margin-top: -60px;
+	margin-left: 7em;
+	flex: 1;
+	font-weight: bold;
+	font-size: 13px;
+	text-shadow: 2px 1px 3px rgba(255, 255, 255, 0.4);
+}
+
+.head {
+	max-width: 150px;
+	overflow: hidden;
+}
+
+.to, 
+.do{
+	font-weight: 800;
+	font-size: 80px;
+	text-shadow: 3px 1px 3px rgba(255, 255, 255, 0.4);
+}
+
+.to {
+	margin-top: 30px;
+	margin-right: 1em;
+}
+
+.do {
+	margin-left: 0.7em;
+	margin-top: -15px;
+}
+
+.container {
+	margin:  2em 10em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.todo {
+	margin: 1em;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+}
+
+.blackcircle,
+.whitecircle {
+	height: 120px;
+	width: 120px;
+}
+
+.whitecircle {
+	position: absolute;
+	top: -1.5em;
+	right: -0.5em;
+	z-index: 0;
+	animation: whiteanimate ease 9000ms infinite alternate;
+}
+
+.blackcircle {
+	position: absolute;
+	left: -2em;
+	bottom: -2.5em;
+	z-index: 0;
+	animation: blackanimate ease 8000ms infinite alternate;
+}
+
+.content {
+	background: linear-gradient(211.66deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.1) 100%);
+	backdrop-filter: blur(20px);
+	border-radius: 15px;
+	max-height: 100vh;
+	height: 80vh;
+	overflow: auto;
+}
+
+svg {
+	max-height: 80vh;
+	margin: 10px;
+}
+
+#one {
+	animation: down ease 2s infinite alternate;
+}
+
+#two {
+	animation: downtwo ease 2s infinite alternate;
+}
+
+
+form {
+	margin: 25px auto;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+form input, form button{
+	outline: none;
+	background: transparent;
+	padding: 4px 5px;
+	color: #1f1c18;
+	border-bottom: 2px solid #1f1c18;
+}
+
+form input {
+	font-size: 20px;
+	width: 60%;
+}
+
+form input::placeholder {
+	color: #3A3A3A;
+}
+
+form button {
+	color: #1f1c18;
+	cursor: pointer;
+}
+
+.fa-trash,
+.fa-check {
+	pointer-events: none;
+}
+
+.todocontent {
+	margin: 0.5em auto;
+	height: 2.5em;
+	background: linear-gradient(90deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.2) 105.12%);
+	border-radius: 8px;
+	display: flex;
+	width: 75%;
+}
+
+.todocontent .name {
+	margin-right: auto;
+	padding: 0.6em 2em;
+	color: #1f1c18;
+	max-width: calc(100% - 40%);
+}
+
+.todocontent button {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0.6em 0.6em;
+	background: #1f1c182a;
+	cursor: pointer;
+}
+
+.buttonmargin {
+	margin-left: 0.5em;
+	margin-right: 1.4em;
+}
+
+.buttonmarginone:hover {
+	background-color:  #196F3D;
+}
+
+.buttonmargin:hover {
+	background-color: #CB4335;
+}
+
+.fall {
+	animation: removed-item-animation 0.6s cubic-bezier(.55,-0.04,.91,.94) forwards;
+}
+
+.fade {
+	animation: restored-item-animation 0.3s 0.3s cubic-bezier(0,.8,.32,1.07) forwards;
+}
+
+@keyframes down {
+
+	0% { transform: translateY(0); }
+	100% { transform: translateY(15px); }
+
+}
+
+@keyframes downtwo {
+
+	0% { transform: translateY(0); }
+	100% { transform: translateY(-15px); }
+
+}
+
+@keyframes whiteanimate {
+
+	0%  { transform: translate(0, 0);}
+  	100% { transform: translate(-8px, 15px);}
+
+}
+
+@keyframes blackanimate {
+
+	0%  { transform: translate(0, 0);}
+  	100% { transform: translate(2px, -50px);}
+
+}
+
+@keyframes removed-item-animation {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+@keyframes restored-item-animation {
+    from {
+        opacity: 1;
+        transform: scale(1);
+        text-decoration: none;
+        text-decoration-color: transparent;
+    }
+
+    to {
+        opacity: 0.8;
+        transform: scale(0.9);
+        text-decoration: line-through;
+		text-decoration-color: #1f1c18;
+    }
+}
+
+.content::-webkit-scrollbar {
+    display: block;
+    width: 7.5px;
+}
+.content::-webkit-scrollbar-track {
+    background: transparent;
+}
+    
+.content::-webkit-scrollbar-thumb {
+    background-color: #3A3A3A;
+    border-right: none;
+    border-left: none;
+}
+
+.content::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 5vh;
+}
+
+.content::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 10vh;
+}
