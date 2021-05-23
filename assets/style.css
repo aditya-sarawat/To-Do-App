@@ -270,7 +270,7 @@ form button {
     margin-top: 10vh;
 }
 
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-device-width: 800px) {
   	body {
   		height: -webkit-avilable-height;
   		width: -webkit-avilable-width;
