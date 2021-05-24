@@ -20,9 +20,13 @@ function addNewElement() {
 		div.appendChild(checkButton);
 		div.appendChild(trashButton);
 		content.appendChild(div);
-		addTodo(input.value);
+
+		let data = {};
+		data.value = input.value;
+		data.check = false;
+
+		addTodo(data);
 		input.value = "";
-		console.log(input.value);
 	}
 	else {
 		window.alert("Please Write Something to add!");
@@ -30,7 +34,23 @@ function addNewElement() {
 }
 
 function completed() {
-	this.parentNode.classList.add("fade");
+	const node = this.parentNode;
+	node.classList.add("fade");
+
+	if(localStorage.getItem("todos") === null) {
+		todos = [];
+	}
+	else {
+		todos = JSON.parse(localStorage.getItem("todos"));
+	}
+
+	todos.forEach(function(todo) {
+		if (todo.value === node.children[0].innerText) {
+			todo.check = true;
+		}
+	});
+
+	localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 function deletetodo() {
@@ -50,12 +70,7 @@ function addTodo(todo) {
 		todos = JSON.parse(localStorage.getItem("todos"));
 	}
 	todos.push(todo);
-	console.log(todo);
 	localStorage.setItem("todos", JSON.stringify(todos));
-}
-
-function setCompleted(todo) {
-	
 }
 
 function removeTodo(todo) {
@@ -82,9 +97,12 @@ function getTodos() {
 	todos.forEach(function(todo) {
 		const div = document.createElement("div");
 		div.classList.add("todocontent");
+		if (todo.check === true) {
+			div.classList.add("fade");
+		}
 		const divcontent = document.createElement("div");
 		divcontent.classList.add("name");
-		divcontent.innerText = todo;
+		divcontent.innerText = todo.value;
 		console.log(todo);
 		const checkButton = document.createElement("button");
 		checkButton.classList.add("buttonmarginone");
