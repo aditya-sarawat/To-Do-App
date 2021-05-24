@@ -37,20 +37,14 @@ function completed() {
 	const node = this.parentNode;
 	node.classList.add("fade");
 
-	if(localStorage.getItem("todos") === null) {
-		todos = [];
-	}
-	else {
-		todos = JSON.parse(localStorage.getItem("todos"));
-	}
+	todos = JSON.parse(localStorage.getItem("todos"));
 
 	todos.forEach(function(todo) {
 		if (todo.value === node.children[0].innerText) {
 			todo.check = true;
+			localStorage.setItem("todos", JSON.stringify(todos));
 		}
 	});
-
-	localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 function deletetodo() {
@@ -103,7 +97,6 @@ function getTodos() {
 		const divcontent = document.createElement("div");
 		divcontent.classList.add("name");
 		divcontent.innerText = todo.value;
-		console.log(todo);
 		const checkButton = document.createElement("button");
 		checkButton.classList.add("buttonmarginone");
 		checkButton.innerHTML = `<i class="fas fa-check"></i>`;
