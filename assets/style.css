@@ -302,7 +302,7 @@ form button {
     }
 
     form .inputvalue{
-    	font-size: 35px;
+    	font-size: 40px;
     }
 
     form button {
@@ -310,11 +310,19 @@ form button {
     }
 
     .todocontent {
-    	font-size: 30px;
+    	font-size: 40px;
     }
 
     .todocontent button {
-    	padding: 20px;
+    	padding: 30px;
+    }
+
+    .fas {
+    	transform: scale(2);
+    }
+
+    form button img {
+    	transform: scale(2);
     }
 
 	.svg {
